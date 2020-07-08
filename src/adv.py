@@ -1,5 +1,5 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
 
 room = {
@@ -36,12 +36,14 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-
+playing_game=True
 # Make a new player object that is currently in the 'outside' room.
-
+print("Welcome to Bandersnatch a choose your own adventure game")
+player=Player(input("Choose your character's name: "))
 # Write a loop that:
 #
 # * Prints the current room name
+print(room["outside"])
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
