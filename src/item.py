@@ -5,6 +5,6 @@ class Item:
     def __str__(self):
         return(F"Item:{self.name}, Description:{self.description}")
     def on_drop(self):
-        pass
+        return (F"You have dropped {self.name}")
     def on_take(self):
-        pass
+        return (F"You have taken {self.name}")
