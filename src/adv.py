@@ -36,14 +36,10 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-playing_game=True
+
 # Make a new player object that is currently in the 'outside' room.
-print("Welcome to Bandersnatch a choose your own adventure game")
-player=Player(input("Choose your character's name: "))
 # Write a loop that:
-#
 # * Prints the current room name
-print(room["outside"])
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
@@ -51,3 +47,38 @@ print(room["outside"])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+playing_game=True
+
+while playing_game:
+     # Intro of the game and inputs user's name
+    print("Welcome to Bandersnatch a choose your own adventure game")
+    player=Player(input("Choose your character's name: "))
+    # Sets current room to outside
+    player.current_room=room["outside"]
+    print (F"You are currently in {player.current_room}")
+
+    direction_choice=input("What direction would you like to go? [n] [e] [s] [w] or [q] to exit the game: ")
+    # Loop to get to the foyer
+    player_choice=True
+    while player_choice:
+        if (direction_choice == "n"):
+            player.current_room=player.current_room.n_to
+            print(player.current_room)
+            direction_choice=input("What direction would you like to go? [n] [e] [s] [w] or [q] to exit the game: ")
+        elif (direction_choice == "e"):
+            player.current_room=player.current_room.e_to
+            print(player.current_room)
+            direction_choice=input("What direction would you like to go? [n] [e] [s] [w] or [q] to exit the game: ")
+        elif (direction_choice == "s"):
+            player.current_room=player.current_room.s_to
+            print(player.current_room)
+            direction_choice=input("What direction would you like to go? [n] [e] [s] [w] or [q] to exit the game: ")
+        elif (direction_choice == "w"):
+            player.current_room=player.current_room.w_to
+            print(player.current_room)
+            direction_choice=input("What direction would you like to go? [n] [e] [s] [w] or [q] to exit the game: ")
+        elif (direction_choice=="q"):
+            player_choice=False
+            playing_game=False
+        else:
+            print("Invalid input")
